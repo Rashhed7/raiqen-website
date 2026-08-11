@@ -1,0 +1,321 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #07080a;
+  --color-panel: #101216;
+  --color-panel2: #15171c;
+  --color-fg: #f5f5f5;
+  --color-mute: #9a9da5;
+  --color-gold: #e3b46c;
+}
+
+@theme inline {
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jbmono), ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background-color: #07080a;
+  color: #f5f5f5;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(227, 180, 108, 0.22);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #07080a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1d2129;
+  border-radius: 8px;
+  border: 2px solid #07080a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2f3a;
+}
+
+/* ---------------- custom cursor ---------------- */
+html.cursor-none-active,
+html.cursor-none-active * {
+  cursor: none !important;
+}
+.cursor-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 300;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #e3b46c;
+  pointer-events: none;
+  will-change: transform;
+}
+.cursor-ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 299;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 245, 245, 0.25);
+  pointer-events: none;
+  will-change: transform;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    width 0.3s ease,
+    height 0.3s ease;
+}
+.cursor-ring[data-hover="true"] {
+  border-color: rgba(227, 180, 108, 0.55);
+  background: rgba(227, 180, 108, 0.06);
+  width: 52px;
+  height: 52px;
+}
+@media (max-width: 767px) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* ---------------- film grain ---------------- */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+
+/* ---------------- buttons ---------------- */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #edc688, #d9a755);
+  color: #14100a;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0.95rem 1.7rem;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    filter 0.35s ease;
+  box-shadow: 0 0 0 rgba(227, 180, 108, 0);
+}
+.btn-gold:hover {
+  filter: brightness(1.07);
+  box-shadow: 0 14px 44px -14px rgba(227, 180, 108, 0.5);
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 245, 245, 0.14);
+  color: #f5f5f5;
+  font-size: 14px;
+  padding: 0.95rem 1.7rem;
+  background: rgba(255, 255, 255, 0.02);
+  transition:
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(227, 180, 108, 0.5);
+  background: rgba(227, 180, 108, 0.06);
+}
+.btn-gold svg,
+.btn-ghost svg {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-gold:hover svg,
+.btn-ghost:hover svg {
+  transform: translateX(3px);
+}
+
+/* ---------------- nav link underline ---------------- */
+.nav-link {
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: #e3b46c;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ---------------- text gradient ---------------- */
+.text-gradient-gold {
+  background: linear-gradient(180deg, #f5f5f5 18%, rgba(227, 180, 108, 0.62) 135%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------------- form fields ---------------- */
+.field {
+  width: 100%;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(245, 245, 245, 0.09);
+  background: rgba(255, 255, 255, 0.02);
+  color: #f5f5f5;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 0.85rem 1.05rem;
+  transition:
+    border-color 0.35s ease,
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.field::placeholder {
+  color: rgba(154, 157, 165, 0.55);
+}
+.field:hover {
+  border-color: rgba(245, 245, 245, 0.18);
+}
+.field:focus {
+  outline: none;
+  border-color: rgba(227, 180, 108, 0.55);
+  background: rgba(227, 180, 108, 0.04);
+  box-shadow: 0 0 0 3px rgba(227, 180, 108, 0.1);
+}
+select.field {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5' stroke='%239A9DA5' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.05rem center;
+  padding-right: 2.6rem;
+}
+select.field option {
+  background: #101216;
+  color: #f5f5f5;
+}
+textarea.field {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* ---------------- CSS 3D icon animations ---------------- */
+.icon-3d {
+  animation: spin-y var(--icon-dur, 20s) linear infinite;
+  will-change: transform;
+}
+.icon-3d-z {
+  animation: spin-z var(--icon-dur, 16s) linear infinite;
+  will-change: transform;
+}
+.icon-bob {
+  animation: bob 5.5s ease-in-out infinite;
+}
+.group:hover .icon-3d,
+.group:hover .icon-3d-z {
+  --icon-dur: 7s;
+}
+
+/* ---------------- keyframes ---------------- */
+@keyframes spin-y {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes spin-z {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes rot {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rot-rev {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(-4px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+@keyframes scrolldrop {
+  0% {
+    transform: translateY(-110%);
+  }
+  55% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(320%);
+  }
+}
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.55);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
