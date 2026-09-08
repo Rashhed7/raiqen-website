@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useContactPopup } from "@/lib/contact-popup-context";
 import { ArrowRight } from "./icons";
 import BrandMark from "./BrandMark";
 import { EASE } from "./Reveal";
@@ -18,6 +19,7 @@ const LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { open: openPopup } = useContactPopup();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -94,14 +96,15 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
-            <a
-              href="#contact"
+            <button
+              type="button"
+              onClick={openPopup}
               className="group hidden items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.05] px-5 py-2 text-[13px] font-medium text-gold transition-all duration-300 hover:border-gold/60 hover:bg-gold/10 md:flex"
               data-cursor="link"
             >
               Start a Project
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </a>
+            </button>
 
             <button
               onClick={() => setOpen(!open)}

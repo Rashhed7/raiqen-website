@@ -1,10 +1,12 @@
 "use client";
 
+import { useContactPopup } from "@/lib/contact-popup-context";
 import { ArrowRight } from "./icons";
 import MagneticButton from "./MagneticButton";
 import { MaskReveal, Reveal, SectionLabel } from "./Reveal";
 
 export default function CTA() {
+  const { open } = useContactPopup();
   return (
     <section
       id="cta"
@@ -41,15 +43,15 @@ export default function CTA() {
         </Reveal>
 
         <Reveal delay={0.42} className="mt-11 flex flex-wrap items-center justify-center gap-4">
-          <MagneticButton>
-            <a
-              href="mailto:hello@raiqen.ai?subject=Project%20inquiry%20—%20RAIQEN"
+          <MagneticButton>              <button
+              type="button"
+              onClick={open}
               className="btn-gold"
               data-cursor="link"
             >
               Start a Project
               <ArrowRight className="h-4 w-4" />
-            </a>
+            </button>
           </MagneticButton>
           <MagneticButton>
             <a

@@ -2,6 +2,8 @@
 
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useContactPopup } from "@/lib/contact-popup-context";
+import { buildLeadPayload, submitLead } from "@/lib/lead-form";
 import ContactOrbit from "./ContactOrbit";
 import { ArrowRight, MailIcon, PhoneIcon, WhatsAppIcon } from "./icons";
 import MagneticButton from "./MagneticButton";
@@ -33,20 +35,16 @@ const WA_TEXT = encodeURIComponent(
   "Hi RAIQEN, I'd like to talk about a project."
 );
 
-/** Scrolls the #contact-form anchor into view with the fixed nav offset. */
-function scrollToForm(e: React.MouseEvent<HTMLAnchorElement>) {
-  e.preventDefault();
-  const el = document.getElementById("contact-form");
-  if (!el) return;
-  const top = el.getBoundingClientRect().top + window.scrollY - 110;
-  window.scrollTo({ top, behavior: "smooth" });
-}
-
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [sentVia, setSentVia] = useState<"webhook" | "mailto">("webhook");
+  const { open } = useContactPopup();
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (submitting || sent) return;
+
     const data = new FormData(e.currentTarget);
     const name = String(data.get("name") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
@@ -55,6 +53,32 @@ export default function Contact() {
     const idea = String(data.get("idea") ?? "").trim();
     const budget = String(data.get("budget") ?? "").trim();
 
+    setSubmitting(true);
+
+    // Primary: save the lead via /api/leads — same pipeline as the popup.
+    try {
+      await submitLead(
+        buildLeadPayload({
+          name,
+          email,
+          company,
+          phone: "",
+          service: topic,
+          message: idea,
+          timeline: "Not specified",
+          budget: budget || "Not specified",
+        })
+      );
+      setSentVia("webhook");
+      setSent(true);
+      return;
+    } catch (err) {
+      console.error("Lead form submission error:", err);
+    } finally {
+      setSubmitting(false);
+    }
+
+    // Fallback: open the visitor's mail client with the message pre-filled.
     const subject = `Project inquiry — ${name} (${topic})`;
     const body = [
       `Name: ${name}`,
@@ -72,6 +96,7 @@ export default function Contact() {
     window.location.href = `mailto:hello@raiqen.ai?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
+    setSentVia("mailto");
     setSent(true);
   };
 
@@ -122,15 +147,15 @@ export default function Contact() {
 
           <Reveal delay={0.38} className="mt-10 flex flex-wrap items-center gap-4">
             <MagneticButton>
-              <a
-                href="#contact-form"
-                onClick={scrollToForm}
+              <button
+                type="button"
+                onClick={open}
                 className="btn-gold"
                 data-cursor="link"
               >
                 Start a Conversation
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </button>
             </MagneticButton>
             <MagneticButton>
               <a
@@ -191,17 +216,22 @@ export default function Contact() {
                       Thanks for reaching out.
                     </h3>
                     <p className="mt-3 max-w-sm text-[14px] leading-relaxed text-mute">
-                      We&apos;ll get back to you soon. Your email app should
-                      have opened with your message ready — if not, email us
-                      directly at{" "}
-                      <a
-                        href="mailto:hello@raiqen.ai"
-                        className="text-gold underline-offset-4 hover:underline"
-                        data-cursor="link"
-                      >
-                        hello@raiqen.ai
-                      </a>
-                      .
+                      {sentVia === "webhook" ? (
+                        <>We&apos;ve received your request. We&apos;ll get back to you soon.</>
+                      ) : (
+                        <>
+                          Your email app should have opened with your message
+                          ready — if not, email us directly at{" "}
+                          <a
+                            href="mailto:hello@raiqen.ai"
+                            className="text-gold underline-offset-4 hover:underline"
+                            data-cursor="link"
+                          >
+                            hello@raiqen.ai
+                          </a>
+                          .
+                        </>
+                      )}
                     </p>
                   </motion.div>
                 ) : (
@@ -353,10 +383,10 @@ export default function Contact() {
                       <MagneticButton className="block sm:inline-block">
                         <button
                           type="submit"
-                          disabled={sent}
+                          disabled={submitting || sent}
                           className="btn-gold w-full sm:w-auto disabled:cursor-not-allowed disabled:opacity-60"
                         >
-                          {sent ? "Sending…" : "Let&apos;s Talk"}
+                          {submitting ? "Sending…" : "Let&apos;s Talk"}
                           <ArrowRight className="h-4 w-4" />
                         </button>
                       </MagneticButton>
@@ -442,15 +472,15 @@ export default function Contact() {
                   You don&apos;t need a complete plan. If you have an idea, a
                   problem, or a process you think AI could improve, talk to us.
                 </p>
-                <a
-                  href="#contact-form"
-                  onClick={scrollToForm}
+                <button
+                  type="button"
+                  onClick={open}
                   className="group mt-5 inline-flex items-center gap-2 text-[13.5px] font-medium text-gold transition-colors duration-300 hover:text-fg"
                   data-cursor="link"
                 >
                   Tell us your idea
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-                </a>
+                </button>
               </div>
             </Reveal>
 

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Sora } from "next/font/google";
 import Cursor from "@/components/Cursor";
+import ContactPopup from "@/components/ContactPopup";
 import MotionProviders from "@/components/MotionProviders";
+import { ContactPopupProvider } from "@/lib/contact-popup-context";
 import "./globals.css";
 
 const sora = Sora({
@@ -79,8 +81,11 @@ export default function RootLayout({
           Skip to content
         </a>
         <MotionProviders>
-          <Cursor />
-          {children}
+          <ContactPopupProvider>
+            <Cursor />
+            {children}
+            <ContactPopup />
+          </ContactPopupProvider>
         </MotionProviders>
       </body>
     </html>

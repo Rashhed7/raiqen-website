@@ -6,6 +6,7 @@ import { ArrowRight } from "./icons";
 import MagneticButton from "./MagneticButton";
 import ParticleField from "./ParticleField";
 import { MaskReveal, Reveal } from "./Reveal";
+import { useContactPopup } from "@/lib/contact-popup-context";
 
 // Lazy-load the Three.js scene for faster initial paint & smaller bundle.
 const IntelligenceCore = dynamic(() => import("./IntelligenceCore"), {
@@ -20,6 +21,7 @@ const IntelligenceCore = dynamic(() => import("./IntelligenceCore"), {
 export default function Hero() {
   const offset = useMediaQuery("(min-width: 1024px)");
   const highQuality = useMediaQuery("(min-width: 768px)");
+  const { open } = useContactPopup();
 
   return (
     <section
@@ -82,10 +84,10 @@ export default function Hero() {
               </a>
             </MagneticButton>
             <MagneticButton>
-              <a href="#contact" className="btn-ghost" data-cursor="link">
+              <button type="button" onClick={open} className="btn-ghost" data-cursor="link">
                 Start a Project
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </button>
             </MagneticButton>
           </Reveal>
         </div>
