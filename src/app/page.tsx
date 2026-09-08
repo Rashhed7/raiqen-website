@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Products from "@/components/Products";
+import SelectedWork from "@/components/SelectedWork";
 import WhatWeBuild from "@/components/WhatWeBuild";
 import WhyRAIQEN from "@/components/WhyRAIQEN";
 import Workflow from "@/components/Workflow";
@@ -18,6 +19,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <WhatWeBuild />
+      <SelectedWork />
       <Workflow />
       <Capabilities />
       <Approach />

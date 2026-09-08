@@ -103,7 +103,7 @@ function ProductCard({
 
 export default function Products() {
   return (
-    <section id="work" className="relative py-28 md:py-40">
+    <section id="research" className="relative py-28 md:py-40">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <Reveal>
           <SectionLabel>Products</SectionLabel>
