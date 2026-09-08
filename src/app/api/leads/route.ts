@@ -28,9 +28,13 @@ interface LeadInput {
   page?: string;
 }
 
-async function hsFetch(path: string, body: unknown) {
+async function hsFetch(
+  path: string,
+  body: unknown,
+  method: "POST" | "PATCH" = "POST"
+) {
   const res = await fetch(`${HUBSPOT_API}${path}`, {
-    method: "POST",
+    method,
     headers: {
       Authorization: `Bearer ${HUBSPOT_ACCESS_TOKEN}`,
       "Content-Type": "application/json",
@@ -61,6 +65,29 @@ async function ensureCustomProperties() {
       if (err instanceof Error && err.message.includes("(409)")) continue;
       throw err;
     }
+  }
+}
+
+/**
+ * Create or update a contact by email.
+ * HubSpot returns 409 when a contact with the same email already exists;
+ * the error body contains the existing contact's id, so we patch it instead.
+ */
+async function upsertContact(properties: Record<string, string>) {
+  try {
+    return await hsFetch("/crm/v3/objects/contacts", { properties });
+  } catch (err) {
+    if (!(err instanceof Error) || !err.message.includes("(409)")) throw err;
+
+    // HubSpot's 409 body: { message: "Contact already exists. Existing ID: 123" }
+    const match = err.message.match(/Existing ID:\s*(\d+)/);
+    if (!match) throw err;
+
+    return hsFetch(
+      `/crm/v3/objects/contacts/${match[1]}`,
+      { properties },
+      "PATCH"
+    );
   }
 }
 
@@ -101,22 +128,20 @@ export async function POST(request: Request) {
   try {
     await ensureCustomProperties();
 
-    const contact = await hsFetch("/crm/v3/objects/contacts", {
-      properties: {
-        email,
-        firstname,
-        lastname,
-        company: String(input.company ?? "").trim(),
-        phone: String(input.phone ?? "").trim(),
-        lifecyclestage: "lead",
-        hs_lead_status: "NEW",
-        lead_service: String(input.service ?? "").trim(),
-        lead_message: String(input.message ?? "").trim(),
-        lead_timeline: String(input.timeline ?? "").trim(),
-        lead_budget: String(input.budget ?? "").trim(),
-        lead_source: "RAIQEN Website",
-        lead_page: String(input.page ?? "/").trim(),
-      },
+    const contact = await upsertContact({
+      email,
+      firstname,
+      lastname,
+      company: String(input.company ?? "").trim(),
+      phone: String(input.phone ?? "").trim(),
+      lifecyclestage: "lead",
+      hs_lead_status: "NEW",
+      lead_service: String(input.service ?? "").trim(),
+      lead_message: String(input.message ?? "").trim(),
+      lead_timeline: String(input.timeline ?? "").trim(),
+      lead_budget: String(input.budget ?? "").trim(),
+      lead_source: "RAIQEN Website",
+      lead_page: String(input.page ?? "/").trim(),
     });
     const contactId: string = contact.id;
 
