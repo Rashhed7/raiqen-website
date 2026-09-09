@@ -292,7 +292,10 @@ export default function IntelligenceCore({
       ) : (
         <Canvas
           dpr={quality === "high" ? [1, 1.75] : [1, 1.4]}
-          camera={{ position: [offset ? 2.1 : 0, 0, 7.4], fov: 45 }}
+          camera={{
+            position: [offset ? 2.1 : 0, 0, offset ? 7.4 : 10.6],
+            fov: 45,
+          }}
           gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
           style={{ background: "transparent" }}
         >

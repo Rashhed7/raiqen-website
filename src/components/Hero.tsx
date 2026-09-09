@@ -36,9 +36,9 @@ export default function Hero() {
 
       <ParticleField className="absolute inset-0 h-full w-full" density={1} />
 
-      {/* 3D core — beside the text on desktop, behind on mobile */}
+      {/* 3D core — beside the text on desktop, below the headline on mobile */}
       <div
-        className="pointer-events-none absolute inset-0 lg:left-[32%]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 top-24 sm:top-16 lg:inset-0 lg:left-[32%]"
         aria-hidden="true"
       >
         <IntelligenceCore
@@ -46,7 +46,7 @@ export default function Hero() {
           offset={offset}
           className="absolute inset-0 h-full w-full"
         />
-        <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-[110px]" />
+        <div className="absolute left-1/2 top-[60%] h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-[110px] lg:left-1/2 lg:top-1/2" />
       </div>
 
       {/* content */}
