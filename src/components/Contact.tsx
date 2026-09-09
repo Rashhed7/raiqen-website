@@ -386,7 +386,7 @@ export default function Contact() {
                           disabled={submitting || sent}
                           className="btn-gold w-full sm:w-auto disabled:cursor-not-allowed disabled:opacity-60"
                         >
-                          {submitting ? "Sending…" : "Let&apos;s Talk"}
+                          {submitting ? "Sending…" : "Let's Talk"}
                           <ArrowRight className="h-4 w-4" />
                         </button>
                       </MagneticButton>

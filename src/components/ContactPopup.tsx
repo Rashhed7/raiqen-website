@@ -371,7 +371,7 @@ export default function ContactPopup() {
         setSubmitting(false);
       }
     },
-    [name, email, company, phone, services, message, timeline, budget, honeypot, validate]
+    [name, email, company, phone, services, message, timeline, budget, validate]
   );
 
   /* ---- Reset for "Try Again" ---- */

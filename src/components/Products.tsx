@@ -76,7 +76,7 @@ function ProductCard({
         </div>
         <span className="flex items-center gap-2 rounded-full border border-gold/20 bg-gold/[0.04] px-3.5 py-1.5 font-mono text-[10px] tracking-[0.22em] text-gold/90">
           <span className="h-1.5 w-1.5 animate-[blink_2.6s_ease-in-out_infinite] rounded-full bg-gold" />
-          Coming Soon
+          Live
         </span>
       </div>
 
@@ -91,7 +91,7 @@ function ProductCard({
 
       <div className="mt-9 flex items-center justify-between border-t border-white/[0.06] pt-5">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-mute/50">
-          In development
+          In production
         </span>
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold/50">
           RAIQEN R&amp;D
@@ -117,7 +117,8 @@ export default function Products() {
           </h2>
           <Reveal delay={0.25} className="max-w-xs">
             <p className="text-[14px] leading-relaxed text-mute">
-              What&apos;s next is being built. Quietly, precisely, now.
+              Designed, engineered and shipped in-house — running in
+              production today.
             </p>
           </Reveal>
         </div>

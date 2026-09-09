@@ -9,10 +9,7 @@ const NAV = [
   { label: "Contact", href: "#contact" },
 ];
 
-const SOCIAL = [
-  { label: "LinkedIn", href: "https://www.linkedin.com" },
-  { label: "GitHub", href: "https://github.com" },
-];
+const SOCIAL = [{ label: "LinkedIn", href: "https://www.linkedin.com/company/raiqen-ai/" }];
 
 export default function Footer() {
   return (
