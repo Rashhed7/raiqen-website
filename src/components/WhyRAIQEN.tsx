@@ -33,7 +33,7 @@ export default function WhyRAIQEN() {
             <Reveal
               key={item.num}
               delay={i * 0.1}
-              className="group border-t border-white/[0.07] py-12 md:py-16"
+              className="group border-t border-ink/[0.08] py-12 md:py-16"
             >
               <div className="grid items-baseline gap-4 md:grid-cols-[7rem_1fr_20rem] md:gap-8">
                 <span className="font-mono text-xs text-gold/60">{item.num}</span>

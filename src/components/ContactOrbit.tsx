@@ -67,7 +67,7 @@ export default function ContactOrbit({ className }: { className?: string }) {
         const n = nodes[i];
         ctx.beginPath();
         ctx.ellipse(cx, cy, rx * n.rx, ry * n.ry, 0, 0, Math.PI * 2);
-        ctx.strokeStyle = "rgba(245,245,245,0.045)";
+        ctx.strokeStyle = "rgba(16,24,40,0.07)";
         ctx.lineWidth = 1;
         ctx.stroke();
       }
@@ -87,7 +87,7 @@ export default function ContactOrbit({ className }: { className?: string }) {
         ctx.beginPath();
         ctx.moveTo(cx, cy);
         ctx.lineTo(p.x, p.y);
-        ctx.strokeStyle = "rgba(227,180,108,0.1)";
+        ctx.strokeStyle = "rgba(169,123,47,0.18)";
         ctx.lineWidth = 1;
         ctx.stroke();
       }
@@ -98,15 +98,15 @@ export default function ContactOrbit({ className }: { className?: string }) {
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = "rgba(245,245,245,0.07)";
+        ctx.strokeStyle = "rgba(16,24,40,0.11)";
         ctx.lineWidth = 1;
         ctx.stroke();
       }
 
       // central glow
       const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 74);
-      glow.addColorStop(0, "rgba(227,180,108,0.18)");
-      glow.addColorStop(1, "rgba(227,180,108,0)");
+      glow.addColorStop(0, "rgba(169,123,47,0.25)");
+      glow.addColorStop(1, "rgba(169,123,47,0)");
       ctx.fillStyle = glow;
       ctx.beginPath();
       ctx.arc(cx, cy, 74, 0, Math.PI * 2);
@@ -116,7 +116,7 @@ export default function ContactOrbit({ className }: { className?: string }) {
       const cs = 5 + Math.sin(t * 0.0014) * 1.1;
       ctx.beginPath();
       ctx.arc(cx, cy, cs, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(227,180,108,0.9)";
+      ctx.fillStyle = "rgba(169,123,47,0.95)";
       ctx.fill();
 
       // stage nodes
@@ -126,7 +126,7 @@ export default function ContactOrbit({ className }: { className?: string }) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, s, 0, Math.PI * 2);
         ctx.fillStyle =
-          i === 1 ? "rgba(227,180,108,0.55)" : "rgba(245,245,245,0.3)";
+          i === 1 ? "rgba(169,123,47,0.65)" : "rgba(16,24,40,0.32)";
         ctx.fill();
       }
 

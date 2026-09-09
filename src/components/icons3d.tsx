@@ -38,8 +38,8 @@ export function StackIcon({ className }: { className?: string }) {
   return (
     <div className={`icon-bob ${className ?? ""}`}>
       <div className="relative h-16 w-16 [transform:rotateX(56deg)] [transform-style:preserve-3d]">
-        <div className="absolute inset-x-0 bottom-0 h-11 rounded-lg border border-white/15 bg-panel2/80 [transform:translateZ(0px)]" />
-        <div className="absolute inset-x-1.5 bottom-2 h-10 rounded-lg border border-white/20 bg-panel2/95 [transform:translateZ(9px)]" />
+        <div className="absolute inset-x-0 bottom-0 h-11 rounded-lg border border-ink/15 bg-panel2/90 [transform:translateZ(0px)]" />
+        <div className="absolute inset-x-1.5 bottom-2 h-10 rounded-lg border border-ink/20 bg-panel2 [transform:translateZ(9px)]" />
         <div className="absolute inset-x-3 bottom-4 h-9 rounded-lg border border-gold/45 bg-panel2 [transform:translateZ(18px)]" />
       </div>
     </div>

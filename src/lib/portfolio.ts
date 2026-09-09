@@ -98,10 +98,3 @@ export const PROJECTS: WorkProject[] = [
     industry: "Renewables",
   },
 ];
-
-/** Derived, honest counts — used in the Selected Work meta band. */
-export const WORK_STATS = {
-  projects: PROJECTS.length,
-  industries: [...new Set(PROJECTS.map((p) => p.industry))].length,
-  clients: [...new Set(PROJECTS.map((p) => p.client))].length,
-};

@@ -83,7 +83,7 @@ export default function Capabilities() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-8% 0px" }}
                 transition={{ duration: 0.7, ease: EASE }}
-                className="group border-b border-white/[0.07] py-10 first:border-t lg:py-12"
+                className="group border-b border-ink/[0.08] py-10 first:border-t lg:py-12"
               >
                 <div className="flex items-baseline gap-5">
                   <span className="font-mono text-xs text-gold/60">{g.num}</span>
@@ -104,7 +104,7 @@ export default function Capabilities() {
                         ease: EASE,
                       }}
                       data-cursor="link"
-                      className="cursor-pointer rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-2 text-[13px] text-mute transition-all duration-300 hover:border-gold/40 hover:bg-gold/[0.05] hover:text-fg"
+                      className="cursor-pointer rounded-full border border-ink/[0.1] bg-ink/[0.02] px-4 py-2 text-[13px] text-mute transition-all duration-300 hover:border-gold/50 hover:bg-gold/[0.08] hover:text-fg"
                     >
                       {item}
                     </motion.span>

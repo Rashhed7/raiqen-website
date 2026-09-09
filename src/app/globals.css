@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #07080a;
-  --color-panel: #101216;
-  --color-panel2: #15171c;
-  --color-fg: #f5f5f5;
-  --color-mute: #9a9da5;
-  --color-gold: #e3b46c;
+  /* Light-theme surfaces */
+  --color-ink: #f7f8fa; /* page background (was near-black) */
+  --color-panel: #ffffff; /* raised cards */
+  --color-panel2: #f0f2f6; /* hover cards */
+  --color-fg: #101828; /* primary text — deep slate */
+  --color-mute: #4b5563; /* secondary text — gray-600 */
+  --color-gold: #a97b2f; /* brand — darkened for AA contrast on white */
 }
 
 @theme inline {
@@ -21,8 +22,8 @@ html {
 }
 
 body {
-  background-color: #07080a;
-  color: #f5f5f5;
+  background-color: #f7f8fa;
+  color: #101828;
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -30,23 +31,23 @@ body {
 }
 
 ::selection {
-  background: rgba(227, 180, 108, 0.22);
-  color: #fff;
+  background: rgba(169, 123, 47, 0.18);
+  color: #101828;
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #07080a;
+  background: #eef0f4;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1d2129;
+  background: #c9ced8;
   border-radius: 8px;
-  border: 2px solid #07080a;
+  border: 2px solid #eef0f4;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a2f3a;
+  background: #aab1bf;
 }
 
 /* ---------------- custom cursor ---------------- */
@@ -62,7 +63,7 @@ html.cursor-none-active * {
   width: 6px;
   height: 6px;
   border-radius: 9999px;
-  background: #e3b46c;
+  background: #a97b2f;
   pointer-events: none;
   will-change: transform;
 }
@@ -74,7 +75,7 @@ html.cursor-none-active * {
   width: 36px;
   height: 36px;
   border-radius: 9999px;
-  border: 1px solid rgba(245, 245, 245, 0.25);
+  border: 1px solid rgba(16, 24, 40, 0.25);
   pointer-events: none;
   will-change: transform;
   transition:
@@ -84,8 +85,8 @@ html.cursor-none-active * {
     height 0.3s ease;
 }
 .cursor-ring[data-hover="true"] {
-  border-color: rgba(227, 180, 108, 0.55);
-  background: rgba(227, 180, 108, 0.06);
+  border-color: rgba(169, 123, 47, 0.55);
+  background: rgba(169, 123, 47, 0.07);
   width: 52px;
   height: 52px;
 }
@@ -102,7 +103,8 @@ html.cursor-none-active * {
   inset: 0;
   z-index: 90;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.04;
+  filter: invert(1); /* turn the dark noise light for a paper-like texture */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
 }
 
@@ -112,8 +114,8 @@ html.cursor-none-active * {
   align-items: center;
   gap: 0.6rem;
   border-radius: 9999px;
-  background: linear-gradient(180deg, #edc688, #d9a755);
-  color: #14100a;
+  background: linear-gradient(180deg, #b8873a, #9a6b22);
+  color: #fff;
   font-weight: 500;
   font-size: 14px;
   padding: 0.95rem 1.7rem;
@@ -121,11 +123,11 @@ html.cursor-none-active * {
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s ease,
     filter 0.35s ease;
-  box-shadow: 0 0 0 rgba(227, 180, 108, 0);
+  box-shadow: 0 0 0 rgba(169, 123, 47, 0);
 }
 .btn-gold:hover {
-  filter: brightness(1.07);
-  box-shadow: 0 14px 44px -14px rgba(227, 180, 108, 0.5);
+  filter: brightness(1.06);
+  box-shadow: 0 14px 44px -14px rgba(169, 123, 47, 0.55);
   transform: translateY(-1px);
 }
 .btn-ghost {
@@ -133,18 +135,18 @@ html.cursor-none-active * {
   align-items: center;
   gap: 0.6rem;
   border-radius: 9999px;
-  border: 1px solid rgba(245, 245, 245, 0.14);
-  color: #f5f5f5;
+  border: 1px solid rgba(16, 24, 40, 0.15);
+  color: #101828;
   font-size: 14px;
   padding: 0.95rem 1.7rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(16, 24, 40, 0.02);
   transition:
     border-color 0.35s ease,
     background-color 0.35s ease;
 }
 .btn-ghost:hover {
-  border-color: rgba(227, 180, 108, 0.5);
-  background: rgba(227, 180, 108, 0.06);
+  border-color: rgba(169, 123, 47, 0.55);
+  background: rgba(169, 123, 47, 0.06);
 }
 .btn-gold svg,
 .btn-ghost svg {
@@ -167,7 +169,7 @@ html.cursor-none-active * {
   bottom: 0;
   height: 1px;
   width: 100%;
-  background: #e3b46c;
+  background: #a97b2f;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -179,7 +181,7 @@ html.cursor-none-active * {
 
 /* ---------------- text gradient ---------------- */
 .text-gradient-gold {
-  background: linear-gradient(180deg, #f5f5f5 18%, rgba(227, 180, 108, 0.62) 135%);
+  background: linear-gradient(180deg, #101828 18%, rgba(169, 123, 47, 0.85) 135%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -189,9 +191,9 @@ html.cursor-none-active * {
 .field {
   width: 100%;
   border-radius: 0.85rem;
-  border: 1px solid rgba(245, 245, 245, 0.09);
-  background: rgba(255, 255, 255, 0.02);
-  color: #f5f5f5;
+  border: 1px solid rgba(16, 24, 40, 0.14);
+  background: #ffffff;
+  color: #101828;
   font-size: 14px;
   line-height: 1.5;
   padding: 0.85rem 1.05rem;
@@ -201,28 +203,28 @@ html.cursor-none-active * {
     box-shadow 0.35s ease;
 }
 .field::placeholder {
-  color: rgba(154, 157, 165, 0.55);
+  color: rgba(75, 85, 99, 0.6);
 }
 .field:hover {
-  border-color: rgba(245, 245, 245, 0.18);
+  border-color: rgba(16, 24, 40, 0.28);
 }
 .field:focus {
   outline: none;
-  border-color: rgba(227, 180, 108, 0.55);
-  background: rgba(227, 180, 108, 0.04);
-  box-shadow: 0 0 0 3px rgba(227, 180, 108, 0.1);
+  border-color: rgba(169, 123, 47, 0.65);
+  background: #fffdf8;
+  box-shadow: 0 0 0 3px rgba(169, 123, 47, 0.12);
 }
 select.field {
   appearance: none;
   -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5' stroke='%239A9DA5' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5' stroke='%234B5563' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1.05rem center;
   padding-right: 2.6rem;
 }
 select.field option {
-  background: #101216;
-  color: #f5f5f5;
+  background: #ffffff;
+  color: #101828;
 }
 textarea.field {
   resize: vertical;
@@ -233,37 +235,37 @@ textarea.field {
 .popup-field {
   width: 100%;
   border-radius: 0.75rem;
-  border: 1px solid rgba(245, 245, 245, 0.09);
-  background: rgba(255, 255, 255, 0.025);
-  color: #f5f5f5;
+  border: 1px solid rgba(16, 24, 40, 0.14);
+  background: #ffffff;
+  color: #101828;
   font-size: 14px;
   line-height: 1.5;
   padding: 0.75rem 0.95rem;
   transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .popup-field::placeholder {
-  color: rgba(154, 157, 165, 0.5);
+  color: rgba(75, 85, 99, 0.55);
 }
 .popup-field:hover {
-  border-color: rgba(245, 245, 245, 0.16);
+  border-color: rgba(16, 24, 40, 0.26);
 }
 .popup-field:focus {
   outline: none;
-  border-color: rgba(227, 180, 108, 0.5);
-  background: rgba(227, 180, 108, 0.035);
-  box-shadow: 0 0 0 3px rgba(227, 180, 108, 0.08);
+  border-color: rgba(169, 123, 47, 0.65);
+  background: #fffdf8;
+  box-shadow: 0 0 0 3px rgba(169, 123, 47, 0.1);
 }
 .popup-select {
   appearance: none;
   -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5' stroke='%239A9DA5' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5' stroke='%234B5563' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.95rem center;
   padding-right: 2.5rem;
 }
 .popup-select option {
-  background: #101216;
-  color: #f5f5f5;
+  background: #ffffff;
+  color: #101828;
 }
 
 /* ---------------- CSS 3D icon animations ---------------- */

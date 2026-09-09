@@ -115,8 +115,8 @@ export default function Contact() {
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
       >
-        <div className="absolute -right-40 top-24 h-[34rem] w-[34rem] rounded-full bg-gold/[0.03] blur-3xl" />
-        <div className="absolute -left-48 bottom-0 h-[28rem] w-[28rem] rounded-full bg-white/[0.02] blur-3xl" />
+        <div className="absolute -right-40 top-24 h-[34rem] w-[34rem] rounded-full bg-gold/[0.07] blur-3xl" />
+        <div className="absolute -left-48 bottom-0 h-[28rem] w-[28rem] rounded-full bg-ink/[0.04] blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10">
@@ -176,9 +176,9 @@ export default function Contact() {
           <Reveal className="relative">
             <div
               id="contact-form"
-              className="relative overflow-hidden rounded-3xl border border-white/[0.07] bg-panel/40 p-6 md:p-10"
+              className="relative overflow-hidden rounded-3xl border border-ink/[0.08] bg-panel/70 p-6 md:p-10"
             >
-              <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/[0.04]" />
+              <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-ink/[0.06]" />
 
               <AnimatePresence mode="wait">
                 {sent ? (
@@ -401,7 +401,7 @@ export default function Contact() {
           <div className="flex flex-col gap-6">
             {/* direct contact */}
             <Reveal delay={0.1}>
-              <div className="rounded-3xl border border-white/[0.07] bg-panel/40 p-6 md:p-7">
+              <div className="rounded-3xl border border-ink/[0.08] bg-panel/70 p-6 md:p-7">
                 <h3 className="font-display text-lg font-semibold tracking-tight">
                   Prefer a direct conversation?
                 </h3>
@@ -414,7 +414,7 @@ export default function Contact() {
                   className="group mt-6 flex items-center gap-3.5"
                   data-cursor="link"
                 >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] transition-colors duration-300 group-hover:border-gold/50 group-hover:bg-gold/10">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/[0.1] bg-ink/[0.03] transition-colors duration-300 group-hover:border-gold/50 group-hover:bg-gold/10">
                     <MailIcon className="h-4 w-4 text-mute transition-colors duration-300 group-hover:text-gold" />
                   </span>
                   <span>
@@ -432,7 +432,7 @@ export default function Contact() {
                   className="group mt-5 flex items-center gap-3.5"
                   data-cursor="link"
                 >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] transition-colors duration-300 group-hover:border-gold/50 group-hover:bg-gold/10">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/[0.1] bg-ink/[0.03] transition-colors duration-300 group-hover:border-gold/50 group-hover:bg-gold/10">
                     <PhoneIcon className="h-4 w-4 text-mute transition-colors duration-300 group-hover:text-gold" />
                   </span>
                   <span>
@@ -463,8 +463,8 @@ export default function Contact() {
 
             {/* just have an idea? */}
             <Reveal delay={0.18}>
-              <div className="relative overflow-hidden rounded-3xl border border-gold/[0.18] bg-gold/[0.04] p-6 md:p-7">
-                <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-gold/[0.08]" />
+              <div className="relative overflow-hidden rounded-3xl border border-gold/[0.3] bg-gold/[0.07] p-6 md:p-7">
+                <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-gold/[0.12]" />
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold/60">
                   Just have an idea?
                 </p>
@@ -486,11 +486,11 @@ export default function Contact() {
 
             {/* orbit visual */}
             <Reveal delay={0.26} className="flex-1">
-              <div className="relative h-full overflow-hidden rounded-3xl border border-white/[0.07] bg-panel/40 p-2">
+              <div className="relative h-full overflow-hidden rounded-3xl border border-ink/[0.08] bg-panel/70 p-2">
                 <div className="relative aspect-[4/3] w-full">
                   <ContactOrbit className="absolute inset-0 h-full w-full" />
                 </div>
-                <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/[0.04]" />
+                <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-ink/[0.06]" />
                 <div className="pointer-events-none absolute inset-x-6 bottom-5 flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.3em] text-mute/40">
                   <span>Idea → Conversation</span>
                   <span className="flex items-center gap-2">
@@ -505,7 +505,7 @@ export default function Contact() {
 
         {/* trust message */}
         <Reveal delay={0.15} className="mt-12">
-          <div className="flex flex-col items-start gap-3 rounded-2xl border border-white/[0.05] bg-white/[0.015] px-6 py-5 md:flex-row md:items-center md:gap-6 md:px-8">
+          <div className="flex flex-col items-start gap-3 rounded-2xl border border-ink/[0.07] bg-ink/[0.02] px-6 py-5 md:flex-row md:items-center md:gap-6 md:px-8">
             <span className="flex items-center gap-2.5 font-display text-[15px] font-semibold tracking-tight text-fg">
               <svg
                 viewBox="0 0 16 16"

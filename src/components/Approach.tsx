@@ -69,7 +69,7 @@ export default function Approach() {
         <div ref={ref} className="mt-24">
           {/* horizontal track (desktop) */}
           <div className="relative hidden md:block">
-            <div className="absolute left-0 right-0 top-[1.35rem] h-px bg-white/[0.07]">
+            <div className="absolute left-0 right-0 top-[1.35rem] h-px bg-ink/[0.1]">
               <motion.div
                 className="absolute inset-0 origin-left bg-gold/70"
                 style={{ scaleX: lineScale }}
@@ -83,7 +83,7 @@ export default function Approach() {
                       "relative z-10 flex h-11 w-11 items-center justify-center rounded-full border font-mono text-xs transition-all duration-700",
                       active >= i
                         ? "border-gold/60 bg-gold/[0.08] text-gold shadow-[0_0_30px_-6px_rgba(227,180,108,0.6)]"
-                        : "border-white/[0.12] bg-panel text-mute/50"
+                        : "border-ink/[0.15] bg-panel text-mute/60"
                     )}
                   >
                     {s.num}
@@ -108,7 +108,7 @@ export default function Approach() {
                 <span
                   className={cn(
                     "absolute left-[1.35rem] top-11 h-[calc(100%-1.5rem)] w-px",
-                    active > i ? "bg-gold/50" : "bg-white/[0.07]"
+                    active > i ? "bg-gold/50" : "bg-ink/[0.1]"
                   )}
                 />
                 <div
@@ -116,7 +116,7 @@ export default function Approach() {
                     "relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border font-mono text-xs transition-all duration-700",
                     active >= i
                       ? "border-gold/60 bg-gold/[0.08] text-gold"
-                      : "border-white/[0.12] bg-panel text-mute/50"
+                      : "border-ink/[0.15] bg-panel text-mute/60"
                   )}
                 >
                   {s.num}
@@ -134,7 +134,7 @@ export default function Approach() {
           </div>
 
           {/* active description */}
-          <div className="mt-4 flex min-h-[7rem] items-center justify-center border-t border-white/[0.06] pt-10 md:mt-12">
+          <div className="mt-4 flex min-h-[7rem] items-center justify-center border-t border-ink/[0.08] pt-10 md:mt-12">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}

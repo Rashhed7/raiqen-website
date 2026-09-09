@@ -53,7 +53,7 @@ export default function WhatWeBuild() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
               transition={{ duration: 0.85, delay: i * 0.09, ease: EASE }}
-              className="group relative flex flex-col rounded-2xl border border-white/[0.07] bg-panel/50 p-7 transition-all duration-500 hover:-translate-y-2 hover:border-gold/25 hover:bg-panel2/70 hover:shadow-[0_30px_70px_-40px_rgba(0,0,0,0.95)]"
+              className="group relative flex flex-col rounded-2xl border border-ink/[0.08] bg-panel/70 p-7 transition-all duration-500 hover:-translate-y-2 hover:border-gold/35 hover:bg-panel2/80 hover:shadow-[0_30px_70px_-40px_rgba(16,24,40,0.25)]"
             >
               <div className="pointer-events-none absolute -inset-6 -z-10 rounded-full bg-gold/0 blur-3xl transition-all duration-700 group-hover:bg-gold/[0.06]" />
 
@@ -73,7 +73,7 @@ export default function WhatWeBuild() {
                 {item.desc}
               </p>
 
-              <div className="mt-7 h-px w-full bg-gradient-to-r from-white/10 via-white/10 to-transparent transition-all duration-500 group-hover:from-gold/50 group-hover:via-gold/20" />
+              <div className="mt-7 h-px w-full bg-gradient-to-r from-ink/10 via-ink/10 to-transparent transition-all duration-500 group-hover:from-gold/60 group-hover:via-gold/25" />
             </motion.article>
           ))}
         </div>

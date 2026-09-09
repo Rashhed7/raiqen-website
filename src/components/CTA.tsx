@@ -15,10 +15,10 @@ export default function CTA() {
       {/* rotating geometric backdrop */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute left-1/2 top-1/2 h-[135vmin] w-[135vmin] -translate-x-1/2 -translate-y-1/2">
-          <div className="absolute inset-0 animate-[rot_90s_linear_infinite] rounded-full border border-white/[0.04]" />
-          <div className="absolute inset-[12%] animate-[rot-rev_70s_linear_infinite] rounded-full border border-dashed border-gold/[0.09]" />
-          <div className="absolute inset-[26%] animate-[rot_120s_linear_infinite] rounded-full border border-white/[0.05]" />
-          <div className="absolute inset-[38%] rounded-full bg-gold/[0.05] blur-3xl" />
+          <div className="absolute inset-0 animate-[rot_90s_linear_infinite] rounded-full border border-ink/[0.06]" />
+          <div className="absolute inset-[12%] animate-[rot-rev_70s_linear_infinite] rounded-full border border-dashed border-gold/[0.18]" />
+          <div className="absolute inset-[26%] animate-[rot_120s_linear_infinite] rounded-full border border-ink/[0.08]" />
+          <div className="absolute inset-[38%] rounded-full bg-gold/[0.1] blur-3xl" />
           <div className="absolute left-1/2 top-[8%] h-2 w-2 -translate-x-1/2 rounded-full bg-gold/60" />
         </div>
       </div>

@@ -125,9 +125,9 @@ function Core({ quality, pointer }: { quality: Quality; pointer: PointerRef }) {
       <mesh>
         <icosahedronGeometry args={[1.05, 4]} />
         <meshPhysicalMaterial
-          color="#15181f"
+          color="#dfe3ea"
           transparent
-          opacity={0.5}
+          opacity={0.6}
           roughness={0.12}
           metalness={0.35}
           clearcoat={1}
@@ -152,11 +152,11 @@ function Core({ quality, pointer }: { quality: Quality; pointer: PointerRef }) {
       {/* wireframe shells */}
       <mesh rotation={[0.4, 0.2, 0]}>
         <icosahedronGeometry args={[1.62, 1]} />
-        <meshBasicMaterial wireframe color="#ffffff" transparent opacity={0.09} />
+        <meshBasicMaterial wireframe color="#3a4152" transparent opacity={0.16} />
       </mesh>
       <mesh rotation={[0.1, 0.6, 0.3]}>
         <icosahedronGeometry args={[1.95, 1]} />
-        <meshBasicMaterial wireframe color="#e3b46c" transparent opacity={0.05} />
+        <meshBasicMaterial wireframe color="#a97b2f" transparent opacity={0.12} />
       </mesh>
 
       {/* node network */}
@@ -170,11 +170,11 @@ function Core({ quality, pointer }: { quality: Quality; pointer: PointerRef }) {
         >
           <icosahedronGeometry args={[0.055, 0]} />
           <meshStandardMaterial
-            color="#d6d9df"
-            emissive="#e3b46c"
-            emissiveIntensity={0.6}
-            metalness={0.9}
-            roughness={0.25}
+            color="#5b6472"
+            emissive="#a97b2f"
+            emissiveIntensity={0.55}
+            metalness={0.85}
+            roughness={0.3}
           />
         </mesh>
       ))}
@@ -182,21 +182,21 @@ function Core({ quality, pointer }: { quality: Quality; pointer: PointerRef }) {
         <Line
           key={i}
           points={pts}
-          color="#9a9da5"
+          color="#6b7280"
           transparent
-          opacity={0.12}
+          opacity={0.22}
           lineWidth={1}
         />
       ))}
 
       {/* orbital rings */}
       <group ref={rings}>
-        <Line points={circle(2.55)} color="#9a9da5" transparent opacity={0.16} lineWidth={1} />
+        <Line points={circle(2.55)} color="#6b7280" transparent opacity={0.3} lineWidth={1} />
         <Line
           points={circle(2.9)}
-          color="#e3b46c"
+          color="#a97b2f"
           transparent
-          opacity={0.1}
+          opacity={0.28}
           dashed
           dashSize={0.28}
           gapSize={0.34}
@@ -204,9 +204,9 @@ function Core({ quality, pointer }: { quality: Quality; pointer: PointerRef }) {
         />
         <Line
           points={circle(3.3)}
-          color="#9a9da5"
+          color="#6b7280"
           transparent
-          opacity={0.08}
+          opacity={0.2}
           dashed
           dashSize={0.12}
           gapSize={0.55}
@@ -221,9 +221,9 @@ function Core({ quality, pointer }: { quality: Quality; pointer: PointerRef }) {
         </bufferGeometry>
         <PointMaterial
           size={0.035}
-          color="#9a9da5"
+          color="#6b7280"
           transparent
-          opacity={0.5}
+          opacity={0.55}
           sizeAttenuation
           depthWrite={false}
         />
@@ -248,9 +248,9 @@ function webglAvailable(): boolean {
 function CoreFallback() {
   return (
     <div className="relative flex h-full w-full items-center justify-center">
-      <div className="absolute h-64 w-64 rounded-full border border-white/10 animate-[rot_40s_linear_infinite]" />
-      <div className="absolute h-52 w-52 rounded-full border border-gold/20 animate-[rot-rev_30s_linear_infinite]" />
-      <div className="absolute h-24 w-24 rounded-full bg-gold/10 blur-2xl" />
+      <div className="absolute h-64 w-64 rounded-full border border-ink/10 animate-[rot_40s_linear_infinite]" />
+      <div className="absolute h-52 w-52 rounded-full border border-gold/25 animate-[rot-rev_30s_linear_infinite]" />
+      <div className="absolute h-24 w-24 rounded-full bg-gold/15 blur-2xl" />
       <div className="absolute h-14 w-14 rounded-full border border-gold/40" />
       <div className="absolute h-4 w-4 rounded-full bg-gold/80" />
     </div>

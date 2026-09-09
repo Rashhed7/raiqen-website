@@ -13,7 +13,7 @@ const SOCIAL = [{ label: "LinkedIn", href: "https://www.linkedin.com/company/rai
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/[0.06]">
+    <footer className="relative border-t border-ink/[0.08] bg-white">
       <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-20">
         <div className="grid gap-12 md:grid-cols-[1.6fr_1fr_1fr]">
           <div>
@@ -90,7 +90,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-white/[0.05] pt-8 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-ink/[0.08] pt-8 md:flex-row md:items-center md:justify-between">
           <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-mute/50">
             © 2026 RAIQEN. All rights reserved.
           </p>

@@ -17,8 +17,8 @@ async function logoDataUri(): Promise<string | null> {
     const sharp = (await import("sharp")).default;
     const file = readFileSync(join(process.cwd(), "public", "logo.png"));
     const out = await sharp(file)
-      .resize(96, 96, { fit: "contain", background: "#07080A" })
-      .flatten({ background: "#07080A" })
+      .resize(96, 96, { fit: "contain", background: "#F7F8FA" })
+      .flatten({ background: "#F7F8FA" })
       .jpeg({ quality: 92 })
       .toBuffer();
     return `data:image/jpeg;base64,${out.toString("base64")}`;
@@ -39,8 +39,8 @@ export default async function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "0 96px",
-          background: "#07080A",
-          color: "#F5F5F5",
+          background: "#F7F8FA",
+          color: "#101828",
           fontFamily: "Arial, sans-serif",
         }}
       >
@@ -62,16 +62,16 @@ export default async function OpengraphImage() {
               alt=""
             />
           ) : (
-            <div
-              style={{
-                width: 18,
-                height: 18,
-                borderRadius: 999,
-                background: "#E3B46C",
-              }}
-            />
+          <div
+            style={{
+              width: 18,
+              height: 18,
+              borderRadius: 999,
+              background: "#A97B2F",
+            }}
+          />
           )}
-          <div style={{ fontSize: 34, letterSpacing: "0.4em", color: "#9A9DA5" }}>
+          <div style={{ fontSize: 34, letterSpacing: "0.4em", color: "#4B5563" }}>
             RAIQEN
           </div>
         </div>
@@ -87,9 +87,9 @@ export default async function OpengraphImage() {
         >
           Intelligence.
           <br />
-          <span style={{ color: "#E3B46C" }}>Engineered for Business.</span>
+          <span style={{ color: "#A97B2F" }}>Engineered for Business.</span>
         </div>
-        <div style={{ marginTop: 44, fontSize: 30, color: "#9A9DA5" }}>
+        <div style={{ marginTop: 44, fontSize: 30, color: "#4B5563" }}>
           AI-powered products · Intelligent software · Business automation
         </div>
       </div>

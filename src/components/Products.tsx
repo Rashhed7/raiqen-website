@@ -62,11 +62,11 @@ function ProductCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       transition={{ duration: 0.9, delay: index * 0.12, ease: EASE }}
-      className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-gradient-to-b from-panel to-ink/70 p-8 transition-colors duration-500 hover:border-gold/25 md:p-10"
+      className="group relative overflow-hidden rounded-3xl border border-ink/[0.08] bg-gradient-to-b from-panel to-panel2/60 p-8 transition-colors duration-500 hover:border-gold/35 md:p-10"
       data-cursor="link"
     >
       <div
-        className="pointer-events-none absolute -top-28 left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-gold/[0.05] blur-[80px] transition-colors duration-700 group-hover:bg-gold/[0.1]"
+        className="pointer-events-none absolute -top-28 left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-gold/[0.1] blur-[80px] transition-colors duration-700 group-hover:bg-gold/[0.18]"
         aria-hidden="true"
       />
 
@@ -89,7 +89,7 @@ function ProductCard({
         </p>
       </div>
 
-      <div className="mt-9 flex items-center justify-between border-t border-white/[0.06] pt-5">
+      <div className="mt-9 flex items-center justify-between border-t border-ink/[0.08] pt-5">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-mute/50">
           In production
         </span>

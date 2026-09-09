@@ -199,7 +199,7 @@ function ServiceMultiSelect({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.15, ease: EASE }}
-            className="absolute z-50 mt-2 max-h-56 w-full overflow-y-auto rounded-xl border border-white/[0.09] bg-[#0d0f13] p-1.5 shadow-xl shadow-black/30"
+            className="absolute z-50 mt-2 max-h-56 w-full overflow-y-auto rounded-xl border border-ink/[0.12] bg-white p-1.5 shadow-xl shadow-ink/20"
           >
             {SERVICES.map((svc) => {
               const active = selected.includes(svc);
@@ -211,8 +211,7 @@ function ServiceMultiSelect({
                   className={cn(
                     "flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-[13px] transition-colors",
                     active
-                      ? "bg-gold/[0.1] text-gold"
-                      : "text-mute hover:bg-white/[0.04] hover:text-fg"
+                      ? "bg-gold/[0.1] text-gold"                        : "text-mute hover:bg-ink/[0.05] hover:text-fg"
                   )}
                 >
                   <span
@@ -220,7 +219,7 @@ function ServiceMultiSelect({
                       "flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors",
                       active
                         ? "border-gold bg-gold text-ink"
-                        : "border-white/20"
+                        : "border-ink/25"
                     )}
                   >
                     {active && (
@@ -411,7 +410,7 @@ export default function ContactPopup() {
           animate="visible"
           exit="exit"
           transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto bg-ink/50 backdrop-blur-sm"
           style={{ paddingTop: "5vh", paddingBottom: "5vh" }}
           role="dialog"
           aria-modal="true"
@@ -430,12 +429,12 @@ export default function ContactPopup() {
             onMouseDown={(e) => e.stopPropagation()}
           >
             {/* ---- Modal Card ---- */}
-            <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0c0e12] shadow-2xl shadow-black/40">
+            <div className="relative overflow-hidden rounded-2xl border border-ink/[0.1] bg-[#fbfcfd] shadow-2xl shadow-ink/25">
               {/* subtle top glow */}
               <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
               {/* inner ring */}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/[0.04]" />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-ink/[0.05]" />
 
               <AnimatePresence mode="wait">
                 {submitted ? (
@@ -561,7 +560,7 @@ export default function ContactPopup() {
                     <button
                       type="button"
                       onClick={handleClose}
-                      className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-mute transition-colors hover:border-white/20 hover:text-fg"
+                      className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-ink/[0.1] bg-white/70 text-mute transition-colors hover:border-ink/30 hover:text-fg"
                       aria-label="Close popup"
                     >
                       <svg

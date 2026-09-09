@@ -63,7 +63,7 @@ export default function Navbar() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500",
           scrolled
-            ? "border-b border-white/[0.05] bg-ink/70 backdrop-blur-xl"
+            ? "border-b border-ink/[0.06] bg-white/70 backdrop-blur-xl"
             : "border-b border-transparent bg-transparent"
         )}
       >
@@ -157,7 +157,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.6, ease: EASE, delay: 0.06 * i }}
-                  className="group flex items-center gap-5 border-b border-white/[0.06] py-5"
+                  className="group flex items-center gap-5 border-b border-ink/[0.08] py-5"
                 >
                   <span className="font-mono text-xs text-gold/60">0{i + 1}</span>
                   <span className="font-display text-3xl font-medium tracking-tight text-fg transition-colors duration-300 group-hover:text-gold">

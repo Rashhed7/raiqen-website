@@ -59,7 +59,7 @@ export default function NetworkVisual({ className }: { className?: string }) {
       // ring
       ctx.beginPath();
       ctx.ellipse(cx, cy, rx * 0.92, ry * 0.92, 0, 0, Math.PI * 2);
-      ctx.strokeStyle = "rgba(245,245,245,0.05)";
+      ctx.strokeStyle = "rgba(16,24,40,0.08)";
       ctx.lineWidth = 1;
       ctx.stroke();
 
@@ -68,7 +68,7 @@ export default function NetworkVisual({ className }: { className?: string }) {
         ctx.beginPath();
         ctx.moveTo(cx, cy);
         ctx.lineTo(pos[i].x, pos[i].y);
-        ctx.strokeStyle = "rgba(227,180,108,0.08)";
+        ctx.strokeStyle = "rgba(169,123,47,0.16)";
         ctx.lineWidth = 1;
         ctx.stroke();
       }
@@ -79,15 +79,15 @@ export default function NetworkVisual({ className }: { className?: string }) {
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = "rgba(245,245,245,0.06)";
+        ctx.strokeStyle = "rgba(16,24,40,0.1)";
         ctx.lineWidth = 1;
         ctx.stroke();
       }
 
       // center core glow
       const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 90);
-      glow.addColorStop(0, "rgba(227,180,108,0.16)");
-      glow.addColorStop(1, "rgba(227,180,108,0)");
+      glow.addColorStop(0, "rgba(169,123,47,0.22)");
+      glow.addColorStop(1, "rgba(169,123,47,0)");
       ctx.fillStyle = glow;
       ctx.beginPath();
       ctx.arc(cx, cy, 90, 0, Math.PI * 2);
@@ -99,14 +99,14 @@ export default function NetworkVisual({ className }: { className?: string }) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle =
-          i % 3 === 0 ? "rgba(227,180,108,0.5)" : "rgba(245,245,245,0.28)";
+          i % 3 === 0 ? "rgba(169,123,47,0.65)" : "rgba(16,24,40,0.3)";
         ctx.fill();
       }
       // center node
       const cs = 5 + Math.sin(t * 0.0016) * 1.2;
       ctx.beginPath();
       ctx.arc(cx, cy, cs, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(227,180,108,0.85)";
+      ctx.fillStyle = "rgba(169,123,47,0.9)";
       ctx.fill();
 
       raf = requestAnimationFrame(tick);

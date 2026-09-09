@@ -13,7 +13,7 @@ const IntelligenceCore = dynamic(() => import("./IntelligenceCore"), {
   ssr: false,
   loading: () => (
     <div className="absolute inset-0 flex items-center justify-center">
-      <div className="h-40 w-40 rounded-full border border-white/10" />
+      <div className="h-40 w-40 rounded-full border border-ink/10" />
     </div>
   ),
 });
@@ -30,8 +30,8 @@ export default function Hero() {
     >
       {/* backdrop glows */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute -top-40 right-[-10%] h-[46rem] w-[46rem] rounded-full bg-gold/[0.045] blur-[140px]" />
-        <div className="absolute bottom-[-20%] left-[-15%] h-[36rem] w-[36rem] rounded-full bg-white/[0.02] blur-[120px]" />
+        <div className="absolute -top-40 right-[-10%] h-[46rem] w-[46rem] rounded-full bg-gold/[0.07] blur-[140px]" />
+        <div className="absolute bottom-[-20%] left-[-15%] h-[36rem] w-[36rem] rounded-full bg-ink/[0.04] blur-[120px]" />
       </div>
 
       <ParticleField className="absolute inset-0 h-full w-full" density={1} />
@@ -101,7 +101,7 @@ export default function Hero() {
       >
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 pb-7 md:px-10">
           <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.35em] text-mute/60">
-            <span className="relative flex h-8 w-px overflow-hidden bg-white/10">
+            <span className="relative flex h-8 w-px overflow-hidden bg-ink/10">
               <span className="absolute inset-x-0 top-0 h-3 animate-[scrolldrop_2.4s_ease-in-out_infinite] bg-gold/80" />
             </span>
             Scroll

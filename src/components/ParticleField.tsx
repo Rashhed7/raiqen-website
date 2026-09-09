@@ -90,7 +90,7 @@ export default function ParticleField({
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(176, 180, 190, 0.26)";
+        ctx.fillStyle = "rgba(16, 24, 40, 0.22)";
         ctx.fill();
       }
 
@@ -106,7 +106,7 @@ export default function ParticleField({
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(227, 180, 108, ${alpha})`;
+            ctx.strokeStyle = `rgba(169, 123, 47, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }

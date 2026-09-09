@@ -33,11 +33,11 @@ export default function About() {
           </div>
 
           <Reveal delay={0.15} className="relative">
-            <div className="relative overflow-hidden rounded-3xl border border-white/[0.07] bg-panel/40 p-2">
+            <div className="relative overflow-hidden rounded-3xl border border-ink/[0.08] bg-panel/70 p-2">
               <div className="relative aspect-[4/3] w-full md:aspect-square">
                 <NetworkVisual className="absolute inset-0 h-full w-full" />
               </div>
-              <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/[0.04]" />
+              <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-ink/[0.06]" />
               <div className="pointer-events-none absolute inset-x-6 bottom-5 flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.3em] text-mute/40">
                 <span>Interconnected systems</span>
                 <span className="flex items-center gap-2">
